@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dkarien.github.io/official-mobile-leyu-com-cn/sitemap.xml
