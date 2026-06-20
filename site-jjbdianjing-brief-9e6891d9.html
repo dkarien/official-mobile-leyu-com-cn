@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞技宝 – 稳定入口 | 服务说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f7f8fa;
+      color: #1e2024;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 hero */
+    .hero {
+      background: #0d1117;
+      color: #e6edf3;
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      color: #b0b8c4;
+    }
+
+    .hero span.highlight {
+      color: #f0b429;
+    }
+
+    /* 主容器 */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* 卡片通用 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0 3rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid #eaecf0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #111318;
+      border-left: 4px solid #f0b429;
+      padding-left: 0.75rem;
+    }
+
+    .card p {
+      color: #3b3f46;
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #eaecf0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      color: #2c2f36;
+      margin-bottom: 0.6rem;
+    }
+
+    /* 人群卡片特殊 */
+    .audience-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 2.8rem;
+    }
+
+    .audience-item {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid #e6e9ef;
+    }
+
+    .audience-item h4 {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      color: #1b1e24;
+    }
+
+    .audience-item p {
+      font-size: 0.92rem;
+      color: #4a4f59;
+    }
+
+    /* 自然链接段落 */
+    .link-block {
+      background: #f0f2f5;
+      border-radius: 20px;
+      padding: 2.4rem 2rem;
+      margin: 2.8rem 0;
+      border-left: 6px solid #f0b429;
+    }
+
+    .link-block p {
+      font-size: 1.05rem;
+      color: #252830;
+      margin-bottom: 0.6rem;
+    }
+
+    .link-block a {
+      color: #b6571e;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .link-block a:hover {
+      border-bottom-color: #b6571e;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      margin-top: 1.5rem;
+    }
+
+    .faq-summary h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      color: #111318;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eef0f4;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: #1f2229;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      color: #4e535e;
+      font-size: 0.92rem;
+    }
+
+    .faq-a a {
+      color: #b6571e;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .container {
+        padding: 1.8rem 1rem 3rem;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      .link-block {
+        padding: 1.8rem 1.5rem;
+      }
+    }
+
+    /* 页脚 */
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8b909a;
+      padding: 2rem 1rem 1.5rem;
+      border-top: 1px solid #e2e5ea;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>稳定入口 · <span class="highlight">竞技宝</span></h1>
+    <p>持续可用的服务锚点，减少反复寻找的成本。清晰的功能卡片与场景说明，帮助你快速了解平台定位。</p>
+  </section>
+
+  <div class="container">
+
+    <!-- 用途卡片（主视觉延伸） -->
+    <div class="card-grid">
+      <div class="card">
+        <span class="badge">实时通道</span>
+        <h3>资讯汇聚</h3>
+        <p>赛事动态、数据更新与社区消息，通过稳定接口持续同步，减少信息延迟带来的决策干扰。</p>
+      </div>
+      <div class="card">
+        <span class="badge">工具导航</span>
+        <h3>功能模块</h3>
+        <p>排行榜、统计看板、个人中心等常用入口集中放置，层级简明，适合高频操作场景。</p>
+      </div>
+      <div class="card">
+        <span class="badge">环境适配</span>
+        <h3>多端同步</h3>
+        <p>桌面与移动端布局自适应，核心流程保持一致。无需反复适应界面，降低学习成本。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <h2 style="font-weight: 500; font-size: 1.5rem; margin-top: 0.8rem; color: #1e2024;">适合哪些用户</h2>
+    <div class="audience-cards">
+      <div class="audience-item">
+        <h4>活跃参与者</h4>
+        <p>日常需要查看赛程、排名与个人记录，重视访问速度和页面稳定性。</p>
+      </div>
+      <div class="audience-item">
+        <h4>轻度浏览者</h4>
+        <p>偶尔关注综合资讯或数据摘要，希望入口直观，无需复杂注册流程。</p>
+      </div>
+      <div class="audience-item">
+        <h4>信息复查者</h4>
+        <p>需要历史记录、趋势对比或过往赛果，平台提供结构化的归档与检索方式。</p>
+      </div>
+      <div class="audience-item">
+        <h4>新用户</h4>
+        <p>首次接触平台，通过说明卡片与引导链接逐步熟悉各模块职能。</p>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 (强调色) -->
+    <div class="link-block">
+      <p>如果你需要长期稳定的访问入口，建议将 <a href="https://site-jjbdianjing.com">竞技宝</a> 加入浏览器书签或收藏夹。域名作为基础服务节点，能够有效降低因检索带来的时间损耗。</p>
+      <p>平台围绕资讯整合与基础工具搭建，整体结构偏向实用与效率。日常使用中，<a href="https://site-jjbdianjing.com">竞技宝</a> 可作为信息聚合的参考起点，后续操作可根据个人习惯逐步延伸。</p>
+    </div>
+
+    <!-- FAQ 摘要 + 再次使用链接 -->
+    <div class="faq-summary">
+      <h3>常见问题 · 摘要</h3>
+      <div class="faq-item">
+        <div class="faq-q">平台是否提供独立客户端？</div>
+        <div class="faq-a">当前主要通过浏览器访问，移动端适配良好。部分功能模块可在 <a href="https://site-jjbdianjing.com">竞技宝</a> 内直接使用，无需额外安装。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">如何确认当前访问的是最新入口？</div>
+        <div class="faq-a">推荐始终使用主域名 <a href="https://site-jjbdianjing.com">竞技宝</a> 作为入口。若出现访问异常，可尝试清除缓存或更换网络环境后重试。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">某些页面加载较慢怎么办？</div>
+        <div class="faq-a">建议检查本地网络连接，或关闭占用带宽较多的后台应用。平台服务器状态可通过站内公告页了解。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    页面说明 · 基于稳定入口与功能介绍<br>
+    指向明确 · 无夸大成份
+  </div>
+
+</body>
+</html>
