@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空体育 · 信息卡片介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+            background: #f4f6fa;
+            color: #1d2b3a;
+            line-height: 1.6;
+        }
+
+        /* 深色头图 hero */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #142b44 100%);
+            padding: 4.5rem 2rem;
+            text-align: center;
+            color: #e9edf3;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(to right, #d4e0f0, #aac1e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 640px;
+            margin: 0 auto;
+            opacity: 0.82;
+            font-weight: 300;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        /* 浅色正文区 + 卡片容器 */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 3.6rem;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.6rem 1.8rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 20, 40, 0.05);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(200, 212, 230, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 30, 60, 0.08);
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            margin-bottom: 0.4rem;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #0f263b;
+            letter-spacing: 0.3px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2c4053;
+            margin-bottom: 0.6rem;
+            line-height: 1.5;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #e6edf8;
+            border-radius: 40px;
+            padding: 0.15rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1f4970;
+            margin-top: 0.4rem;
+            letter-spacing: 0.2px;
+        }
+
+        /* 自然链接段落区域 */
+        .link-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
+            margin: 2.4rem 0 1.6rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(210, 222, 240, 0.4);
+        }
+
+        .link-section h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #0b2a47;
+            border-left: 5px solid #4b7a9c;
+            padding-left: 1.2rem;
+        }
+
+        .link-section p {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            color: #1f3142;
+            max-width: 780px;
+        }
+
+        .link-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #2b6c8f;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #144b6b;
+            border-bottom-color: #2b6c8f;
+        }
+
+        /* 适合人群小卡片区 */
+        .audience-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.8rem 0 2.2rem;
+        }
+
+        .audience-item {
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 0.5rem 1.6rem 0.5rem 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border: 1px solid #dee8f2;
+            color: #1a344a;
+        }
+
+        .audience-item span {
+            font-size: 1.2rem;
+            margin-right: 0.2rem;
+        }
+
+        .faq-note {
+            background: #eef3fa;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            margin-top: 2.6rem;
+        }
+
+        .faq-note h4 {
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #1f3f5a;
+        }
+
+        .faq-note p {
+            color: #284b64;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #d2dceb;
+            margin: 1.2rem 0 2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 3rem 1.2rem;
+            }
+
+            .content {
+                padding: 1.6rem 1rem 2.4rem;
+            }
+
+            .card-grid {
+                gap: 1.2rem;
+                grid-template-columns: 1fr;
+            }
+
+            .link-section {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .audience-flex {
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>星空体育 · 日常查询与对照</h1>
+        <p>没有浮夸的指引，只有温和的阅览——从信息卡片里找到你需要的视角。</p>
+    </header>
+
+    <main class="content">
+
+        <!-- 主视觉／用途卡片 三张 -->
+        <div class="card-grid">
+            <div class="card">
+                <span class="card-icon">🔍</span>
+                <h3>日常对照</h3>
+                <p>赛事信息、积分走向、队伍动态——适合在闲暇时打开并对照自己关注的数据脉络。</p>
+                <span class="tag">实时</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">📋</span>
+                <h3>延伸阅读</h3>
+                <p>从赛前分析到赛后回顾，用平实的资讯补充你的判断，不制造焦虑，只提供素材。</p>
+                <span class="tag">客观</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">🗂️</span>
+                <h3>查询工具</h3>
+                <p>排名、历史交锋、近期战绩——按需检索，界面干净，减少无关干扰。</p>
+                <span class="tag">便捷</span>
+            </div>
+        </div>
+
+        <!-- 自然链接段落：嵌入 “星空体育” -->
+        <div class="link-section">
+            <h2>从一次查询开始</h2>
+            <p>
+                很多时候我们打开一个体育信息页面，只是为了确认某个球队的近期状态，或者对比两支队伍的交手记录。如果你也有类似的习惯，可以试试在浏览器里收藏<strong>星空体育</strong>——站内信息结构清晰，没有夸张的弹窗和冗余引导，适合静下心来慢慢翻阅。
+            </p>
+            <p>
+                无论是深夜翻看积分变动，还是午后浏览赛事预告，保持浏览的节奏比追逐速度更重要。对于习惯做笔记或记录数据的用户而言，<a href="https://m--xingkong.com">星空体育</a>提供了一种低干扰的观测方式。你可以把它当作一个安静的体育资料角，而不是信息轰炸的入口。
+            </p>
+            <p>
+                当然，任何平台都只是工具。真正有价值的是你如何整理、对比和消化这些内容。希望每一次点开，都能带来一点从容。
+            </p>
+        </div>
+
+        <!-- 适合人群（轻标签） -->
+        <h3 style="font-weight: 400; font-size: 1.4rem; color: #1d3348; margin-bottom: 0.6rem;">适合这样的人群</h3>
+        <div class="audience-flex">
+            <div class="audience-item"><span>🧩</span> 喜欢自主对比数据的人</div>
+            <div class="audience-item"><span>📘</span> 习惯赛前做一点功课的爱好者</div>
+            <div class="audience-item"><span>🧘</span> 希望浏览过程安静一些的用户</div>
+            <div class="audience-item"><span>🔗</span> 需要自然延伸阅读的查阅者</div>
+        </div>
+
+        <!-- FAQ 摘要／简短提示 -->
+        <div class="faq-note">
+            <h4>❓ 日常使用中的几个小建议</h4>
+            <p>
+                <strong>关于信息深度：</strong>不必一次性看完所有内容，挑你需要的板块就好。<br>
+                <strong>关于访问节奏：</strong>如果某个时段加载稍慢，可以稍后再试，保持从容。<br>
+                <strong>关于链接：</strong>你可以把<a href="https://m--xingkong.com">星空体育</a>当作一个参考锚点，而非唯一信息源。对照不同来源，往往更有收获。
+            </p>
+        </div>
+
+        <hr>
+
+        <p style="text-align: center; color: #486079; font-size: 0.9rem; letter-spacing: 0.4px; padding-top: 0.6rem;">
+            从一次对照开始，保持浏览的平静与清晰。
+        </p>
+    </main>
+</body>
+</html>
