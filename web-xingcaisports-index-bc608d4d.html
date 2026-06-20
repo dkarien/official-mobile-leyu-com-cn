@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杏彩体育 · 简明指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background-color: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 1120px;
+            width: 100%;
+            padding: 0 24px;
+        }
+
+        /* ---------- 深色头图 hero ---------- */
+        .hero {
+            width: 100%;
+            background: linear-gradient(145deg, #0b1a2e 0%, #1f3347 100%);
+            padding: 72px 0 64px;
+            text-align: center;
+            color: #eef2f8;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            word-break: keep-all;
+        }
+        .hero h1 i {
+            font-style: normal;
+            color: #b4d0ff;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto 8px;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        .hero .badge {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 8px 26px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #cddfff;
+            backdrop-filter: blur(2px);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* ---------- 浅色正文区 ---------- */
+        .main-content {
+            background-color: #ffffff;
+            border-radius: 28px 28px 0 0;
+            margin-top: -32px;
+            padding: 40px 28px 60px;
+            width: 100%;
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.02);
+        }
+        .main-content .container {
+            padding: 0 4px;
+        }
+
+        /* ---------- 信息卡片布局 ---------- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin: 32px 0 28px;
+        }
+        .card-item {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 24px 20px 20px;
+            border: 1px solid #e9edf4;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+        .card-item:hover {
+            box-shadow: 0 8px 28px rgba(0, 20, 50, 0.06);
+            transform: translateY(-2px);
+        }
+        .card-item .emoji-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .card-item h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+            color: #0f1d2f;
+        }
+        .card-item p {
+            font-size: 0.95rem;
+            color: #334155;
+            margin-bottom: 16px;
+        }
+        .card-item .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: #e2e8f0;
+            color: #1e293b;
+            padding: 3px 12px;
+            border-radius: 40px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* ---------- 两栏段落区域 (自然链接) ---------- */
+        .two-col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px 48px;
+            margin: 36px 0 28px;
+        }
+        .col {
+            flex: 1 1 280px;
+        }
+        .col h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+            color: #0b1a2e;
+        }
+        .col p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            color: #1e293b;
+        }
+
+        /* ---------- 强调色链接 ---------- */
+        a {
+            color: #2f6ab3;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        a:hover {
+            color: #1b4b8a;
+            border-bottom-color: #2f6ab3;
+        }
+
+        /* ---------- 引用/提示块 ---------- */
+        .tip-box {
+            background: #edf3fd;
+            border-left: 6px solid #2f6ab3;
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 28px 0 20px;
+            font-size: 0.95rem;
+            color: #1e2b3d;
+        }
+        .tip-box strong {
+            font-weight: 600;
+            color: #0b1a2e;
+        }
+
+        /* ---------- FAQ 摘要 ---------- */
+        .faq-mini {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 24px 28px;
+            margin-top: 24px;
+        }
+        .faq-mini h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #0b1a2e;
+        }
+        .faq-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 4px;
+            color: #121f31;
+        }
+        .faq-item .a {
+            font-size: 0.92rem;
+            color: #3e4f63;
+            line-height: 1.7;
+        }
+
+        /* ---------- 页脚 ---------- */
+        .footer-note {
+            text-align: center;
+            padding: 32px 0 40px;
+            font-size: 0.85rem;
+            color: #6a7b91;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 20px;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero {
+                padding: 48px 0 44px;
+            }
+            .main-content {
+                padding: 28px 16px 40px;
+                margin-top: -20px;
+            }
+            .card-grid {
+                gap: 16px;
+            }
+            .two-col {
+                gap: 20px;
+            }
+            .faq-mini {
+                padding: 18px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 深色头图 -->
+    <section class="hero">
+        <div class="container">
+            <h1>杏彩体育 · <i>简明指南</i></h1>
+            <p class="sub">从运动视野到资讯参考，一个更清晰的出发点</p>
+            <span class="badge">📌 访问提醒 · 方向与节奏</span>
+        </div>
+    </section>
+
+    <!-- 主体浅色区域 -->
+    <div class="main-content">
+        <div class="container">
+
+            <!-- 用途卡片 -->
+            <div class="card-grid">
+                <div class="card-item">
+                    <span class="emoji-icon">📖</span>
+                    <h3>信息查阅</h3>
+                    <p>了解体育动态、赛事概况与内容索引，适合日常浏览与兴趣跟踪。</p>
+                    <span class="tag">体育视野</span>
+                </div>
+                <div class="card-item">
+                    <span class="emoji-icon">🧭</span>
+                    <h3>平台指引</h3>
+                    <p>提供功能入口说明与导航逻辑，帮助新用户快速熟悉页面结构。</p>
+                    <span class="tag">使用向导</span>
+                </div>
+                <div class="card-item">
+                    <span class="emoji-icon">🛡️</span>
+                    <h3>访问备忘</h3>
+                    <p>关注网络环境、账户安全与浏览偏好，在顺畅中保持主动判断。</p>
+                    <span class="tag">安全提示</span>
+                </div>
+            </div>
+
+            <!-- 两栏：适合人群 + 自然链接段落 -->
+            <div class="two-col">
+                <div class="col">
+                    <h2>适合哪些朋友</h2>
+                    <p>喜爱体育资讯、希望以简洁方式浏览赛事信息的人，都可以从中找到自己关心的内容。无论你是偶尔关注比分，还是定期跟踪联赛动态，平台的信息组织方式都留出了调整空间。</p>
+                    <p>另外，对于希望了解界面布局、功能分区的初次使用者，这里也提供了一套清晰的参考框架。</p>
+                </div>
+                <div class="col">
+                    <h2>关于杏彩体育</h2>
+                    <p>一个以体育内容为核心的浏览站点，页面围绕赛事信息、数据参考与内容分类展开。如果你正在寻找一个聚合体育资讯的渠道，可以看看 <a href="https://web-xingcaisports.com">杏彩体育</a> 是否契合你的阅读习惯。</p>
+                    <p>信息获取本身是一件轻快的事——没有多余负担，把注意力放在真正重要的内容上。</p>
+                </div>
+            </div>
+
+            <!-- 提示块：访问提醒 -->
+            <div class="tip-box">
+                <strong>💡 访问提醒</strong> · 使用任何平台时，建议保持网络环境稳定，保护好个人账户信息，同时依据自己的节奏探索功能。遇到不确定的内容，多花一点时间确认来源。
+            </div>
+
+            <!-- FAQ 摘要 -->
+            <div class="faq-mini">
+                <h4>❓ 常见问题摘要</h4>
+                <div class="faq-item">
+                    <span class="q">杏彩体育主要提供什么内容？</span>
+                    <span class="a">以体育相关资讯、赛事动态与导航信息为主，界面简洁，方便快速查找。</span>
+                </div>
+                <div class="faq-item">
+                    <span class="q">访问时需要注意什么？</span>
+                    <span class="a">建议使用常用浏览器，保持网络通畅，并留意个人隐私与账户安全。</span>
+                </div>
+                <div class="faq-item">
+                    <span class="q">是否需要注册才能浏览？</span>
+                    <span class="a">部分基础内容可直接查看，具体功能依赖实际页面设计，按需了解即可。</span>
+                </div>
+            </div>
+
+            <!-- 页脚 -->
+            <div class="footer-note">
+                信息卡片式索引 · 简明 · 以你的节奏为优先
+            </div>
+        </div>
+    </div>
+</body>
+</html>
